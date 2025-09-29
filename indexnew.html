@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Storage — Training Tracker</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.11.0/dist/pptxgen.bundle.js"></script>
+</head>
+<body>
+  <header>
+    <img src="https://cdn.mos.cms.futurecdn.net/7SWhegDJVnF4cmWjkNifeV.jpg" alt="Lumen Logo">
+    <h1>Team Storage — Training Tracker</h1>
+  </header>
+
+  <div class="wrap">
+    <div class="tabs" id="tabs"></div>
+    <div class="actions">
+      <button class="btn-add" onclick="showAddEmployeeModal()">Add Employee</button>
+      <button class="btn-quadrant" onclick="showAddQuadrantModal()">Add Quadrant</button>
+      <button class="btn-delete" onclick="deleteQuadrant()">Delete Quadrant</button>
+      <button class="btn-save" onclick="saveDashboard()">Save Changes</button>
+      <button class="btn-download" onclick="downloadExcel()">Download Excel</button>
+      <button class="btn-download" onclick="downloadPPT()">Download PPT</button>
+      <button class="btn-save" onclick="loadDashboard()">Load Saved Dashboard</button>
+    </div>
+
+    <div class="card">
+      <table>
+        <thead>
+          <tr><th>Employee</th><th>Status</th><th>Comments</th><th>Action</th><th>Delete</th></tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Add Employee Modal -->
+  <div class="modal" id="employeeModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('employeeModal')">&times;</span>
+      <h2>Add Employee</h2>
+      <input type="text" id="employeeName" placeholder="Employee Name">
+      <button onclick="addEmployeeModal()">Add</button>
+    </div>
+  </div>
+
+  <!-- Add Quadrant Modal -->
+  <div class="modal" id="quadrantModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('quadrantModal')">&times;</span>
+      <h2>Add Quadrant</h2>
+      <input type="text" id="quadrantKey" placeholder="Unique Key (e.g., dtl2)">
+      <input type="text" id="quadrantLabel" placeholder="Label (e.g., Dare To Lead 2)">
+      <button onclick="addQuadrantModal()">Add</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
